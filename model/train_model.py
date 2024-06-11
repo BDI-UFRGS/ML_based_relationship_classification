@@ -54,24 +54,6 @@ X_test['labels'] = y_test
 X_train = X_train.drop(['def'], axis=1)
 X_test = X_test.drop(['def'], axis=1)
 
-np.random.seed(42)
-
-# Select random indices for the training set
-train_indices = np.random.choice(X_train.index, size=128, replace=False)
-
-# Select the corresponding rows from X_train and y_train
-X_train = X_train.loc[train_indices]
-
-# Select random indices for the test set
-test_indices = np.random.choice(X_test.index, size=64, replace=False)
-
-# Select the corresponding rows from X_test and y_test
-X_test = X_test.loc[test_indices]
-
-# Verify the shapes of the resulting DataFrames
-print(X_train.shape)
-print(X_test.shape)
-
 dataset_train = Dataset.from_pandas(X_train)
 dataset_test = Dataset.from_pandas(X_test)
 
